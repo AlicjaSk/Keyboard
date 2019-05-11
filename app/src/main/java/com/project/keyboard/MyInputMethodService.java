@@ -11,15 +11,26 @@ import android.view.inputmethod.InputConnection;
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
     private KeyboardView keyboardView;
-    private Keyboard keyboard;
+    private Keyboard firstPartKeyboard;
+    private Keyboard secondPartKeyboard;
+    private Keyboard thirdPartKeyboard;
+    private Keyboard fourthPartKeyboard;
+    private Keyboard fifthPartKeyboard;
+    private Keyboard currentKeyboard;
+
 
     private boolean caps = false;
 
     @Override
     public View onCreateInputView() {
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
-        keyboard = new Keyboard(this, R.xml.keys_layout);
-        keyboardView.setKeyboard(keyboard);
+        firstPartKeyboard = new Keyboard(this, R.xml.keys_layout);
+        secondPartKeyboard = new Keyboard(this, R.xml.keys_layout2);
+        thirdPartKeyboard = new Keyboard(this, R.xml.keys_layout3);
+        fourthPartKeyboard = new Keyboard(this, R.xml.key_layout4);
+        fifthPartKeyboard = new Keyboard(this, R.xml.key_layout5);
+        currentKeyboard = firstPartKeyboard;
+        keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
         return keyboardView;
     }
@@ -34,7 +45,13 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-
+    private void setNewKeyboard(Keyboard keyboard){
+        keyboardView.setKeyboard(keyboard);
+        keyboardView.setOnKeyboardActionListener(this);
+        currentKeyboard = keyboard;
+        currentKeyboard.setShifted(caps);
+        keyboardView.invalidateAllKeys();
+    }
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
@@ -49,14 +66,37 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     } else {
                         inputConnection.commitText("", 1);
                     }
+                    break;
                 case Keyboard.KEYCODE_SHIFT:
                     caps = !caps;
-                    keyboard.setShifted(caps);
+                    currentKeyboard.setShifted(caps);
                     keyboardView.invalidateAllKeys();
                     break;
-                case Keyboard.KEYCODE_DONE:
-                    inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-
+                case -10:
+                    setNewKeyboard(secondPartKeyboard);
+                    break;
+                case -11:
+                    setNewKeyboard(firstPartKeyboard);
+                    break;
+                case -12:
+                    setNewKeyboard(thirdPartKeyboard);
+                    break;
+                case -13:
+                    setNewKeyboard(secondPartKeyboard);
+                    break;
+                case -14:
+                    setNewKeyboard(fourthPartKeyboard);
+                    break;
+                case -15:
+                    setNewKeyboard(thirdPartKeyboard);
+                    break;
+                case -16:
+                    setNewKeyboard(fifthPartKeyboard);
+                    break;
+                case -17:
+                    setNewKeyboard(fourthPartKeyboard);
+                    break;
+                case -9:
                     break;
                 default :
                     char code = (char) primaryCode;
@@ -64,7 +104,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         code = Character.toUpperCase(code);
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
-
             }
         }
 
@@ -78,7 +117,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public void swipeLeft() {
-
     }
 
     @Override
