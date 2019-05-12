@@ -6,17 +6,21 @@ import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
     private KeyboardView keyboardView;
-    private Keyboard firstPartKeyboard;
-    private Keyboard secondPartKeyboard;
-    private Keyboard thirdPartKeyboard;
-    private Keyboard fourthPartKeyboard;
-    private Keyboard fifthPartKeyboard;
-    private Keyboard currentKeyboard;
+    private CustomKeyboard[] keyboardsArray;
+    private int currentKeyboardIdx;
+    private CustomKeyboard firstPartKeyboard;
+    private CustomKeyboard secondPartKeyboard;
+    private CustomKeyboard thirdPartKeyboard;
+    private CustomKeyboard fourthPartKeyboard;
+    private CustomKeyboard fifthPartKeyboard;
+    private CustomKeyboard currentKeyboard;
 
 
     private boolean caps = false;
@@ -24,11 +28,19 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public View onCreateInputView() {
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
-        firstPartKeyboard = new Keyboard(this, R.xml.keys_layout);
-        secondPartKeyboard = new Keyboard(this, R.xml.keys_layout2);
-        thirdPartKeyboard = new Keyboard(this, R.xml.keys_layout3);
-        fourthPartKeyboard = new Keyboard(this, R.xml.key_layout4);
-        fifthPartKeyboard = new Keyboard(this, R.xml.key_layout5);
+        keyboardsArray = new CustomKeyboard[]{
+                new CustomKeyboard(this, R.xml.keys_layout1),
+                new CustomKeyboard(this, R.xml.keys_layout2),
+                new CustomKeyboard(this, R.xml.keys_layout3),
+                new CustomKeyboard(this, R.xml.keys_layout4),
+                new CustomKeyboard(this, R.xml.keys_layout5)
+        };
+        currentKeyboardIdx = 0;
+        firstPartKeyboard = keyboardsArray[0];
+        secondPartKeyboard = keyboardsArray[1];
+        thirdPartKeyboard = keyboardsArray[2];
+        fourthPartKeyboard = keyboardsArray[3];
+        fifthPartKeyboard = keyboardsArray[4];
         currentKeyboard = firstPartKeyboard;
         keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
@@ -45,12 +57,13 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-    private void setNewKeyboard(Keyboard keyboard){
+    private void setNewKeyboard(CustomKeyboard keyboard){
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
         currentKeyboard = keyboard;
         currentKeyboard.setShifted(caps);
         keyboardView.invalidateAllKeys();
+
     }
 
     @Override
@@ -60,7 +73,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
             switch(primaryCode) {
                 case Keyboard.KEYCODE_DELETE :
                     CharSequence selectedText = inputConnection.getSelectedText(0);
-
                     if (TextUtils.isEmpty(selectedText)) {
                         inputConnection.deleteSurroundingText(1, 0);
                     } else {
@@ -72,32 +84,26 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     currentKeyboard.setShifted(caps);
                     keyboardView.invalidateAllKeys();
                     break;
-                case -10:
-                    setNewKeyboard(secondPartKeyboard);
+                case Keyboard.KEYCODE_DONE:
+                    inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
                     break;
-                case -11:
-                    setNewKeyboard(firstPartKeyboard);
+                case CustomKeyboard.NEXT:
+                    int nextIndex = (currentKeyboardIdx + 1) % keyboardsArray.length;
+                    setNewKeyboard(keyboardsArray[nextIndex]);
+                    currentKeyboardIdx = nextIndex;
                     break;
-                case -12:
-                    setNewKeyboard(thirdPartKeyboard);
+                case CustomKeyboard.BACK:
+                    int prevIndex = currentKeyboardIdx - 1;
+                    if (currentKeyboardIdx == 0 )
+                        prevIndex = keyboardsArray.length - 1;
+                    setNewKeyboard(keyboardsArray[prevIndex]);
+                    currentKeyboardIdx = prevIndex;
                     break;
-                case -13:
-                    setNewKeyboard(secondPartKeyboard);
-                    break;
-                case -14:
-                    setNewKeyboard(fourthPartKeyboard);
-                    break;
-                case -15:
-                    setNewKeyboard(thirdPartKeyboard);
-                    break;
-                case -16:
-                    setNewKeyboard(fifthPartKeyboard);
-                    break;
-                case -17:
-                    setNewKeyboard(fourthPartKeyboard);
-                    break;
-                case -9:
-                    break;
+
+
+//                case -30:
+//                    inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
+//                    break;
                 default :
                     char code = (char) primaryCode;
                     if(Character.isLetter(code) && caps){
@@ -106,7 +112,16 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     inputConnection.commitText(String.valueOf(code), 1);
             }
         }
+    }
 
+    @Override
+    public void onStartInputView(EditorInfo attribute, boolean restarting) {
+        currentKeyboard.setImeOptions(getResources(), attribute.imeOptions);
+        for (CustomKeyboard ck : keyboardsArray) {
+            ck.setImeOptions(getResources(), attribute.imeOptions);
+        }
+        super.onStartInputView(attribute, restarting);
+        keyboardView.invalidateAllKeys();
     }
 
 
