@@ -34,8 +34,20 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         currentKeyboard = keyboardsArray[0];
         keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
-        capsClicked();
+        makeCapitalLettersIfEmptyInput();
+
+
         return keyboardView;
+    }
+
+    private void makeCapitalLettersIfEmptyInput(){
+        InputConnection inputConnection = getCurrentInputConnection();
+
+        CharSequence selectedText2 = inputConnection.getTextBeforeCursor(1, 0);
+        if (TextUtils.isEmpty(selectedText2) && !caps) {
+            capsClicked();
+            isOnceShiftClicked = true;
+        }
     }
 
     @Override
@@ -54,7 +66,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         currentKeyboard = keyboard;
         currentKeyboard.setShifted(caps);
         keyboardView.invalidateAllKeys();
-
     }
 
     private void capsClicked(){
@@ -67,6 +78,9 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection != null) {
+
+
+
             switch(primaryCode) {
                 case Keyboard.KEYCODE_DELETE :
                     CharSequence selectedText = inputConnection.getSelectedText(0);
@@ -83,6 +97,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     else if(isTwiceShiftClicked) {
                         isTwiceShiftClicked = false;
+                        isOnceShiftClicked = false;
                         capsClicked();
                     }
                     else {
@@ -116,6 +131,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         isOnceShiftClicked = false;
                     }
             }
+            makeCapitalLettersIfEmptyInput();
         }
     }
 
