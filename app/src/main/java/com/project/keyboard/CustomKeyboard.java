@@ -34,9 +34,12 @@ public class CustomKeyboard extends Keyboard {
 //                break;
             case EditorInfo.IME_ACTION_SEARCH:
                 mEnterKey.icon = res.getDrawable(R.drawable.search);
-//                mEnterKey.label = "TEST";
                 int [] codes = new int [] {Keyboard.KEYCODE_DONE};
                 mEnterKey.codes = codes;
+                break;
+            case EditorInfo.IME_ACTION_DONE:
+                mEnterKey.icon = res.getDrawable(R.drawable.done);
+                mEnterKey.codes = new int [] {Keyboard.KEYCODE_DONE};;
                 break;
 //            case EditorInfo.IME_ACTION_SEND:
 //                mEnterKey.iconPreview = null;
@@ -44,7 +47,7 @@ public class CustomKeyboard extends Keyboard {
 //                mEnterKey.label = res.getText(R.string.label_send_key);
 //                break;
             default:
-                mEnterKey.icon = res.getDrawable(R.drawable.downarrow);
+                mEnterKey.icon = res.getDrawable(R.drawable.enter);
                 mEnterKey.label = null;
                 break;
 

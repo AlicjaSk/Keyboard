@@ -15,14 +15,9 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private KeyboardView keyboardView;
     private CustomKeyboard[] keyboardsArray;
     private int currentKeyboardIdx;
-    private CustomKeyboard firstPartKeyboard;
-    private CustomKeyboard secondPartKeyboard;
-    private CustomKeyboard thirdPartKeyboard;
-    private CustomKeyboard fourthPartKeyboard;
-    private CustomKeyboard fifthPartKeyboard;
     private CustomKeyboard currentKeyboard;
-
-
+    private boolean isOnceShiftClicked = false;
+    private boolean isTwiceShiftClicked = false;
     private boolean caps = false;
 
     @Override
@@ -36,14 +31,10 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 new CustomKeyboard(this, R.xml.keys_layout5)
         };
         currentKeyboardIdx = 0;
-        firstPartKeyboard = keyboardsArray[0];
-        secondPartKeyboard = keyboardsArray[1];
-        thirdPartKeyboard = keyboardsArray[2];
-        fourthPartKeyboard = keyboardsArray[3];
-        fifthPartKeyboard = keyboardsArray[4];
-        currentKeyboard = firstPartKeyboard;
+        currentKeyboard = keyboardsArray[0];
         keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
+        capsClicked();
         return keyboardView;
     }
 
@@ -66,6 +57,12 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
+    private void capsClicked(){
+        caps = !caps;
+        currentKeyboard.setShifted(caps);
+        keyboardView.invalidateAllKeys();
+    }
+
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection inputConnection = getCurrentInputConnection();
@@ -80,10 +77,19 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     break;
                 case Keyboard.KEYCODE_SHIFT:
-                    caps = !caps;
-                    currentKeyboard.setShifted(caps);
-                    keyboardView.invalidateAllKeys();
-                    break;
+                    if(isOnceShiftClicked) {
+                        isTwiceShiftClicked = true;
+                        isOnceShiftClicked = false;
+                    }
+                    else if(isTwiceShiftClicked) {
+                        isTwiceShiftClicked = false;
+                        capsClicked();
+                    }
+                    else {
+                        isOnceShiftClicked = true;
+                        capsClicked();
+                    }
+                        break;
                 case Keyboard.KEYCODE_DONE:
                     inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
                     break;
@@ -99,17 +105,16 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     setNewKeyboard(keyboardsArray[prevIndex]);
                     currentKeyboardIdx = prevIndex;
                     break;
-
-
-//                case -30:
-//                    inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
-//                    break;
                 default :
                     char code = (char) primaryCode;
                     if(Character.isLetter(code) && caps){
                         code = Character.toUpperCase(code);
                     }
                     inputConnection.commitText(String.valueOf(code), 1);
+                    if(isOnceShiftClicked){
+                        capsClicked();
+                        isOnceShiftClicked = false;
+                    }
             }
         }
     }

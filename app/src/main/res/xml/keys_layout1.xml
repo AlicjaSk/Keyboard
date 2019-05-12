@@ -31,6 +31,6 @@
         <Key android:keyWidth="13%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
         <Key android:keyWidth="48%p" android:codes="32" android:keyLabel="SPACE" android:isRepeatable="true"/>
         <Key android:keyWidth="13%p" android:codes="-5" android:keyIcon="@drawable/leftdelarrow" android:isRepeatable="true"/>
-        <Key android:keyWidth="13%p" android:codes="10" android:keyIcon="@drawable/downarrow" android:keyEdgeFlags="right"/>
+        <Key android:keyWidth="13%p" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>
