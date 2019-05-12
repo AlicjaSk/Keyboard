@@ -33,7 +33,7 @@ public class CustomKeyboard extends Keyboard {
 //                mEnterKey.label = res.getText(R.string.label_next_key);
 //                break;
             case EditorInfo.IME_ACTION_SEARCH:
-                mEnterKey.icon = res.getDrawable(R.drawable.sym_keyboard_search);
+                mEnterKey.icon = res.getDrawable(R.drawable.search);
 //                mEnterKey.label = "TEST";
                 int [] codes = new int [] {Keyboard.KEYCODE_DONE};
                 mEnterKey.codes = codes;
