@@ -35,12 +35,10 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
         makeCapitalLettersIfEmptyInput();
-
-
         return keyboardView;
     }
 
-    private void makeCapitalLettersIfEmptyInput(){
+    private void makeCapitalLettersIfEmptyInput() {
         InputConnection inputConnection = getCurrentInputConnection();
 
         CharSequence selectedText2 = inputConnection.getTextBeforeCursor(1, 0);
@@ -78,11 +76,8 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection inputConnection = getCurrentInputConnection();
         if (inputConnection != null) {
-
-
-
             switch(primaryCode) {
-                case Keyboard.KEYCODE_DELETE :
+                case Keyboard.KEYCODE_DELETE:
                     CharSequence selectedText = inputConnection.getSelectedText(0);
                     if (TextUtils.isEmpty(selectedText)) {
                         inputConnection.deleteSurroundingText(1, 0);
@@ -91,11 +86,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     break;
                 case Keyboard.KEYCODE_SHIFT:
-                    if(isOnceShiftClicked) {
+                    if (isOnceShiftClicked) {
                         isTwiceShiftClicked = true;
                         isOnceShiftClicked = false;
                     }
-                    else if(isTwiceShiftClicked) {
+                    else if (isTwiceShiftClicked) {
                         isTwiceShiftClicked = false;
                         isOnceShiftClicked = false;
                         capsClicked();
