@@ -146,11 +146,9 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
             ck.setImeOptions(getResources(), attribute.imeOptions);
         }
 
-        super.onStartInputView(attribute, restarting);
-
         makeCapitalLettersIfEmptyInput();
-
         keyboardView.invalidateAllKeys();
+        super.onStartInputView(attribute, restarting);
     }
 
 
@@ -176,5 +174,15 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void swipeUp() {
 
+    }
+
+    @Override
+    public void onFinishInputView(boolean finishingInput) {
+        caps = false;
+        currentKeyboard.setShifted(false);
+        isOnceShiftClicked = false;
+        isTwiceShiftClicked = false;
+        isDefaultCapitalLetterTurnOff = false;
+        super.onFinishInputView(finishingInput);
     }
 }
