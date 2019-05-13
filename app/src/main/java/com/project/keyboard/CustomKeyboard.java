@@ -10,6 +10,7 @@ public class CustomKeyboard extends Keyboard {
 
     public static final int NEXT = -10;
     public static final int BACK = -11;
+    boolean isSearchIME = false;
 
     private Key mEnterKey;
     public CustomKeyboard(Context context, int xmlLayoutResId)
@@ -22,33 +23,21 @@ public class CustomKeyboard extends Keyboard {
             return;
         }
         switch (options & (EditorInfo.IME_MASK_ACTION | EditorInfo.IME_FLAG_NO_ENTER_ACTION)) {
-//            case EditorInfo.IME_ACTION_GO:
-//                mEnterKey.iconPreview = null;
-//                mEnterKey.icon = null;
-//                mEnterKey.label = res.getText(R.string.label_go_key);
-//                break;
-//            case EditorInfo.IME_ACTION_NEXT:
-//                mEnterKey.iconPreview = null;
-//                mEnterKey.icon = null;
-//                mEnterKey.label = res.getText(R.string.label_next_key);
-//                break;
             case EditorInfo.IME_ACTION_SEARCH:
                 mEnterKey.icon = res.getDrawable(R.drawable.search);
                 int [] codes = new int [] {Keyboard.KEYCODE_DONE};
                 mEnterKey.codes = codes;
+                isSearchIME = true;
                 break;
             case EditorInfo.IME_ACTION_DONE:
                 mEnterKey.icon = res.getDrawable(R.drawable.done);
                 mEnterKey.codes = new int [] {Keyboard.KEYCODE_DONE};;
+                isSearchIME = false;
                 break;
-//            case EditorInfo.IME_ACTION_SEND:
-//                mEnterKey.iconPreview = null;
-//                mEnterKey.icon = null;
-//                mEnterKey.label = res.getText(R.string.label_send_key);
-//                break;
             default:
                 mEnterKey.icon = res.getDrawable(R.drawable.enter);
                 mEnterKey.label = null;
+                isSearchIME = false;
                 break;
 
         }

@@ -19,6 +19,12 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private boolean isOnceShiftClicked = false;
     private boolean isTwiceShiftClicked = false;
     private boolean caps = false;
+    boolean isDefaultCapitalLetterTurnOff = false;
+
+    @Override
+    public void onInitializeInterface(){
+        super.onInitializeInterface();
+    }
 
     @Override
     public View onCreateInputView() {
@@ -34,7 +40,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         currentKeyboard = keyboardsArray[0];
         keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
-        makeCapitalLettersIfEmptyInput();
         return keyboardView;
     }
 
@@ -42,7 +47,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         InputConnection inputConnection = getCurrentInputConnection();
 
         CharSequence selectedText2 = inputConnection.getTextBeforeCursor(1, 0);
-        if (TextUtils.isEmpty(selectedText2) && !caps) {
+        if (TextUtils.isEmpty(selectedText2) && !caps && !currentKeyboard.isSearchIME) {
             capsClicked();
             isOnceShiftClicked = true;
         }
@@ -75,6 +80,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection inputConnection = getCurrentInputConnection();
+        isDefaultCapitalLetterTurnOff = false;
         if (inputConnection != null) {
             switch(primaryCode) {
                 case Keyboard.KEYCODE_DELETE:
@@ -93,6 +99,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     else if (isTwiceShiftClicked) {
                         isTwiceShiftClicked = false;
                         isOnceShiftClicked = false;
+                        isDefaultCapitalLetterTurnOff = true;
                         capsClicked();
                     }
                     else {
@@ -126,7 +133,9 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         isOnceShiftClicked = false;
                     }
             }
-            makeCapitalLettersIfEmptyInput();
+            if(!isDefaultCapitalLetterTurnOff) {
+                makeCapitalLettersIfEmptyInput();
+            }
         }
     }
 
@@ -136,7 +145,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         for (CustomKeyboard ck : keyboardsArray) {
             ck.setImeOptions(getResources(), attribute.imeOptions);
         }
+
         super.onStartInputView(attribute, restarting);
+
+        makeCapitalLettersIfEmptyInput();
+
         keyboardView.invalidateAllKeys();
     }
 
