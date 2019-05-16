@@ -52,17 +52,6 @@ public class CustomKeyboard extends Keyboard {
     protected Key createKeyFromXml(Resources res, Row parent, int x, int y, XmlResourceParser parser) {
         Key key = new Key(res, parent, x, y, parser);
         mEnterKey = key;
-//        if (key.codes[0] == 10) {
-//
-//        } else if (key.codes[0] == ' ') {
-//            mSpaceKey = key;
-//        } else if (key.codes[0] == Keyboard.KEYCODE_MODE_CHANGE) {
-//            mModeChangeKey = key;
-//            mSavedModeChangeKey = new LatinKey(res, parent, x, y, parser);
-//        } else if (key.codes[0] == LatinKeyboardView.KEYCODE_LANGUAGE_SWITCH) {
-//            mLanguageSwitchKey = key;
-//            mSavedLanguageSwitchKey = new LatinKey(res, parent, x, y, parser);
-//        }
         return key;
     }
 
