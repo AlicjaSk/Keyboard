@@ -31,8 +31,13 @@ public class CustomKeyboard extends Keyboard {
                 break;
             case EditorInfo.IME_ACTION_DONE:
                 mEnterKey.icon = res.getDrawable(R.drawable.done);
-                mEnterKey.codes = new int [] {Keyboard.KEYCODE_DONE};;
+                mEnterKey.codes = new int [] {Keyboard.KEYCODE_DONE};
                 isSearchIME = false;
+                break;
+            case EditorInfo.IME_ACTION_GO:
+                mEnterKey.icon = res.getDrawable(R.drawable.search);
+                mEnterKey.codes = new int [] {Keyboard.KEYCODE_DONE};
+                isSearchIME = true;
                 break;
             default:
                 mEnterKey.icon = res.getDrawable(R.drawable.enter);

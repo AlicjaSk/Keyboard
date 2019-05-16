@@ -109,6 +109,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         break;
                 case Keyboard.KEYCODE_DONE:
                     inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,KeyEvent.KEYCODE_ENTER));
+                    inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP,KeyEvent.KEYCODE_ENTER));
                     break;
                 case CustomKeyboard.NEXT:
                     int nextIndex = (currentKeyboardIdx + 1) % keyboardsArray.length;
