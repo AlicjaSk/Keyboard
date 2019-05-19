@@ -16,7 +16,16 @@
 			<meta-data android:name="android.view.im" android:resource="@layout/method"/>
 			<intent-filter>
 				<action android:name="android.view.InputMethod"/>
+                <category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</service>
+        <activity
+            android:name="com.project.keyboard.Settings"
+            android:icon="@mipmap/ic_launcher"
+            android:launchMode="singleTask"
+            android:roundIcon="@mipmap/ic_launcher_round"
+
+            android:windowSoftInputMode="adjustPan" />
 	</application>
+
 </manifest>
