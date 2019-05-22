@@ -1,17 +1,24 @@
 package com.project.keyboard;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputMethodSubtype;
+import static com.project.keyboard.ThemeActivity.THEME_KEY;
 
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
+
+    private static Context appContext;
 
     private KeyboardView keyboardView;
     private CustomKeyboard[] keyboardsArray;
@@ -20,26 +27,78 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private boolean isOnceShiftClicked = false;
     private boolean isTwiceShiftClicked = false;
     private boolean caps;
+    SharedPreferences sharedPreferences;
 
     @Override
     public void onInitializeInterface(){
+//        shouldOfferSwitchingToNextInputMethod();
         super.onInitializeInterface();
+        appContext = getApplicationContext();
+    }
+
+
+    public static Context getAppContext() {
+        return appContext;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+//        mInputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//        mWordSeparators = getResources().getString(R.string.word_separators);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
     public View onCreateInputView() {
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
-        keyboardsArray = new CustomKeyboard[]{
-                new CustomKeyboard(this, R.xml.keys_layout1),
-                new CustomKeyboard(this, R.xml.keys_layout2),
-                new CustomKeyboard(this, R.xml.keys_layout3),
-                new CustomKeyboard(this, R.xml.keys_layout4),
-                new CustomKeyboard(this, R.xml.keys_layout5)
-        };
-        currentKeyboardIdx = 0;
-        currentKeyboard = keyboardsArray[0];
-        keyboardView.setKeyboard(currentKeyboard);
-        keyboardView.setOnKeyboardActionListener(this);
+
+        int nrOfView = sharedPreferences.getInt(THEME_KEY, 2);
+        if(nrOfView == 1){
+
+            keyboardsArray = new CustomKeyboard[]{
+                    new CustomKeyboard(this, R.xml.keys_layout1),
+                    new CustomKeyboard(this, R.xml.keys_layout2),
+                    new CustomKeyboard(this, R.xml.keys_layout3),
+                    new CustomKeyboard(this, R.xml.keys_layout4),
+                    new CustomKeyboard(this, R.xml.keys_layout5)
+            };
+
+            currentKeyboardIdx = 0;
+
+            currentKeyboard = keyboardsArray[0];
+            keyboardView.setKeyboard(currentKeyboard);
+            keyboardView.setOnKeyboardActionListener(this);
+        }
+        else if (nrOfView == 2){
+            keyboardsArray = new CustomKeyboard[]{
+                    new CustomKeyboard(this, R.xml.keys_layout6),
+                    new CustomKeyboard(this, R.xml.keys_layout1)
+            };
+            currentKeyboardIdx = 0;
+            currentKeyboard = keyboardsArray[0];
+            keyboardView.setKeyboard(currentKeyboard);
+            keyboardView.setOnKeyboardActionListener(this);
+        }
+        else{
+            keyboardsArray = new CustomKeyboard[]{
+                    new CustomKeyboard(this, R.xml.keys_layout1),
+                    new CustomKeyboard(this, R.xml.keys_layout2),
+                    new CustomKeyboard(this, R.xml.keys_layout3),
+                    new CustomKeyboard(this, R.xml.keys_layout4),
+                    new CustomKeyboard(this, R.xml.keys_layout5),
+                    new CustomKeyboard(this, R.xml.keys_layout6)
+            };
+            currentKeyboardIdx = 0;
+            currentKeyboard = keyboardsArray[0];
+            keyboardView.setKeyboard(currentKeyboard);
+            keyboardView.setOnKeyboardActionListener(this);
+        }
+
+//        currentKeyboardIdx = 0;
+//        currentKeyboard = keyboardsArray[0];
+//        keyboardView.setKeyboard(currentKeyboard);
+//        keyboardView.setOnKeyboardActionListener(this);
         return keyboardView;
     }
 
@@ -62,7 +121,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-    private void setNewKeyboard(CustomKeyboard keyboard){
+    public void setNewKeyboard(CustomKeyboard keyboard){
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
         currentKeyboard = keyboard;
@@ -92,6 +151,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     break;
                 case Keyboard.KEYCODE_SHIFT:
+//                    switchToNextInputMethod(false);
                     if (isOnceShiftClicked) {
                         isTwiceShiftClicked = true;
                         isOnceShiftClicked = false;
@@ -149,8 +209,17 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         makeCapitalLettersIfEmptyInput(attribute);
     }
 
-
     @Override
+    public void onStartInput(EditorInfo attribute, boolean restarting) {
+        super.onStartInput(attribute, restarting);
+
+        // Restart the InputView to apply right theme selected.
+        setInputView(onCreateInputView());
+
+    }
+
+
+        @Override
     public void onText(CharSequence charSequence) {
 
     }
@@ -177,6 +246,19 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onFinishInputView(boolean finishingInput) {
         super.onFinishInputView(finishingInput);
+    }
+
+    @Override
+    public void onCurrentInputMethodSubtypeChanged(InputMethodSubtype subtype) {
+//        keyboardView.setSubtypeOnSpaceKey(subtype);
+//        switch(subtype.getLocale()) {
+//            case "fa_IR":
+////                setLatinKeyboard(mSymbolsKeyboard);
+//                break;
+//            case "en_US":
+////                setLatinKeyboard(mQwertyKeyboard);
+//                break;
+//        };
     }
 
 }

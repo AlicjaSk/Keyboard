@@ -3,29 +3,38 @@
     package="com.project.keyboard">
 
     <application
+        android:debuggable="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-		<service
-			android:name=".MyInputMethodService"
-			android:label="MyInputMethodService"
-			android:permission="android.permission.BIND_INPUT_METHOD">
-			<meta-data android:name="android.view.im" android:resource="@layout/method"/>
-			<intent-filter>
-				<action android:name="android.view.InputMethod"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</service>
         <activity
-            android:name="com.project.keyboard.Settings"
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+
+        <service
+            android:name=".MyInputMethodService"
+            android:label="MyInputMethodService"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@layout/method" />
+
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".ThemeActivity"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask"
             android:roundIcon="@mipmap/ic_launcher_round"
-
             android:windowSoftInputMode="adjustPan" />
-	</application>
+    </application>
 
 </manifest>
