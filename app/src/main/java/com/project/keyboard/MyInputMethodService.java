@@ -57,37 +57,38 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         if(nrOfView == 1){
 
             keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.keys_layout1),
-                    new CustomKeyboard(this, R.xml.keys_layout2),
-                    new CustomKeyboard(this, R.xml.keys_layout3),
-                    new CustomKeyboard(this, R.xml.keys_layout4),
-                    new CustomKeyboard(this, R.xml.keys_layout5)
+                    new CustomKeyboard(this, R.xml.small_keys_layout1),
+                    new CustomKeyboard(this, R.xml.small_keys_layout2),
+                    new CustomKeyboard(this, R.xml.small_keys_layout3)
             };
-
             currentKeyboardIdx = 0;
-
             currentKeyboard = keyboardsArray[0];
             keyboardView.setKeyboard(currentKeyboard);
             keyboardView.setOnKeyboardActionListener(this);
         }
         else if (nrOfView == 2){
             keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.keys_layout6),
-                    new CustomKeyboard(this, R.xml.keys_layout1)
+                    new CustomKeyboard(this, R.xml.medium_keys_layout1),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout2),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout3),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout4),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout5)
             };
+
             currentKeyboardIdx = 0;
+
             currentKeyboard = keyboardsArray[0];
             keyboardView.setKeyboard(currentKeyboard);
             keyboardView.setOnKeyboardActionListener(this);
         }
         else{
             keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.keys_layout1),
-                    new CustomKeyboard(this, R.xml.keys_layout2),
-                    new CustomKeyboard(this, R.xml.keys_layout3),
-                    new CustomKeyboard(this, R.xml.keys_layout4),
-                    new CustomKeyboard(this, R.xml.keys_layout5),
-                    new CustomKeyboard(this, R.xml.keys_layout6)
+                    new CustomKeyboard(this, R.xml.medium_keys_layout1),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout2),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout3),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout4),
+                    new CustomKeyboard(this, R.xml.medium_keys_layout5),
+                    new CustomKeyboard(this, R.xml.small_keys_layout1)
             };
             currentKeyboardIdx = 0;
             currentKeyboard = keyboardsArray[0];
