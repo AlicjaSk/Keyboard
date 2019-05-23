@@ -2,29 +2,23 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="0px"
     android:keyHeight="60dp"
-    android:keyWidth="20%p"
+    android:keyWidth="33%p"
     android:verticalGap="0px">
     >
     <Row>
         <Key android:codes="96" android:keyLabel="`" android:keyEdgeFlags="left"/>
         <Key android:codes="92" android:keyLabel="\\"/>
-        <Key android:codes="61" android:keyLabel="="/>
-        <Key android:codes="123" android:keyLabel="{"/>
-        <Key android:codes="125" android:keyLabel="}" android:keyEdgeFlags="right"/>
+        <Key android:codes="61" android:keyLabel="=" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="123" android:keyLabel="{" android:keyEdgeFlags="left"/>
+        <Key android:codes="125" android:keyLabel="}" />
+        <Key android:codes="37" android:keyLabel="%" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <Key android:codes="91" android:keyLabel="[" android:keyEdgeFlags="left"/>
         <Key android:codes="93" android:keyLabel="]"/>
-        <Key android:codes="37" android:keyLabel="%"/>
-        <Key android:codes="94" android:keyLabel="^"/>
-        <Key android:codes="47" android:keyLabel="/" android:keyEdgeFlags="right"/>
-    </Row>
-    <Row>
-        <Key android:codes="60" android:keyLabel="&lt;" android:keyEdgeFlags="left"/>
-        <Key android:codes="62" android:keyLabel=">"/>
-        <Key android:codes="124" android:keyLabel="|"/>
-        <Key android:codes="8364" android:keyLabel="€"/>
-        <Key android:codes="169" android:keyLabel="©" android:keyEdgeFlags="right"/>
+        <Key android:codes="94" android:keyLabel="^" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <Key android:keyWidth="13%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>

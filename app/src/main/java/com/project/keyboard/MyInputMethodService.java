@@ -53,53 +53,52 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     public View onCreateInputView() {
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
 
-        int nrOfView = sharedPreferences.getInt(THEME_KEY, 2);
-        if(nrOfView == 1){
+        String nrOfView =  sharedPreferences.getString(THEME_KEY, "MEDIUM_SIZE");
+        switch(nrOfView) {
+            case "SMALL_SIZE":
 
-            keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.small_keys_layout1),
-                    new CustomKeyboard(this, R.xml.small_keys_layout2),
-                    new CustomKeyboard(this, R.xml.small_keys_layout3)
-            };
-            currentKeyboardIdx = 0;
-            currentKeyboard = keyboardsArray[0];
-            keyboardView.setKeyboard(currentKeyboard);
-            keyboardView.setOnKeyboardActionListener(this);
+                keyboardsArray = new CustomKeyboard[]{
+                        new CustomKeyboard(this, R.xml.small_keys_layout1),
+                        new CustomKeyboard(this, R.xml.small_keys_layout2),
+                        new CustomKeyboard(this, R.xml.small_keys_layout3)
+                };
+                currentKeyboardIdx = 0;
+                currentKeyboard = keyboardsArray[0];
+                keyboardView.setKeyboard(currentKeyboard);
+                keyboardView.setOnKeyboardActionListener(this);
+                break;
+            case "MEDIUM_SIZE":
+                keyboardsArray = new CustomKeyboard[]{
+                        new CustomKeyboard(this, R.xml.medium_keys_layout1),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout2),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout3),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout4),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout5)
+                };
+
+                currentKeyboardIdx = 0;
+                currentKeyboard = keyboardsArray[0];
+                keyboardView.setKeyboard(currentKeyboard);
+                keyboardView.setOnKeyboardActionListener(this);
+                break;
+            case "LARGE_SIZE":
+                keyboardsArray = new CustomKeyboard[]{
+                        new CustomKeyboard(this, R.xml.large_keys_layout1),
+                        new CustomKeyboard(this, R.xml.large_keys_layout2),
+                        new CustomKeyboard(this, R.xml.large_keys_layout3),
+                        new CustomKeyboard(this, R.xml.large_keys_layout4),
+                        new CustomKeyboard(this, R.xml.large_keys_layout5),
+                        new CustomKeyboard(this, R.xml.large_keys_layout6),
+                        new CustomKeyboard(this, R.xml.large_keys_layout7),
+                        new CustomKeyboard(this, R.xml.large_keys_layout8),
+                        new CustomKeyboard(this, R.xml.large_keys_layout9),
+                };
+                currentKeyboardIdx = 0;
+                currentKeyboard = keyboardsArray[0];
+                keyboardView.setKeyboard(currentKeyboard);
+                keyboardView.setOnKeyboardActionListener(this);
+                break;
         }
-        else if (nrOfView == 2){
-            keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.medium_keys_layout1),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout2),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout3),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout4),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout5)
-            };
-
-            currentKeyboardIdx = 0;
-
-            currentKeyboard = keyboardsArray[0];
-            keyboardView.setKeyboard(currentKeyboard);
-            keyboardView.setOnKeyboardActionListener(this);
-        }
-        else{
-            keyboardsArray = new CustomKeyboard[]{
-                    new CustomKeyboard(this, R.xml.medium_keys_layout1),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout2),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout3),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout4),
-                    new CustomKeyboard(this, R.xml.medium_keys_layout5),
-                    new CustomKeyboard(this, R.xml.small_keys_layout1)
-            };
-            currentKeyboardIdx = 0;
-            currentKeyboard = keyboardsArray[0];
-            keyboardView.setKeyboard(currentKeyboard);
-            keyboardView.setOnKeyboardActionListener(this);
-        }
-
-//        currentKeyboardIdx = 0;
-//        currentKeyboard = keyboardsArray[0];
-//        keyboardView.setKeyboard(currentKeyboard);
-//        keyboardView.setOnKeyboardActionListener(this);
         return keyboardView;
     }
 

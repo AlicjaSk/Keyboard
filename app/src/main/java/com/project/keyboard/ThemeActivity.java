@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -28,27 +27,13 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theme);
 
-        ImageButton themeButton1 = findViewById(R.id.theme1_imageButton);
-        ImageButton themeButton2 = findViewById(R.id.theme2_imageButton);
-//        ImageButton themeButton3 = findViewById(R.id.theme3_imageButton);
-//        ImageButton themeButton4 = findViewById(R.id.theme4_imageButton);
-//        ImageButton themeButton5 = findViewById(R.id.theme5_imageButton);
-//        ImageButton themeButton6 = findViewById(R.id.theme6_imageButton);
-//        ImageButton themeButton7 = findViewById(R.id.theme7_imageButton);
-//        ImageButton themeButton8 = findViewById(R.id.theme8_imageButton);
-//        ImageButton themeButton9 = findViewById(R.id.theme9_imageButton);
-//        ImageButton themeButton10 = findViewById(R.id.theme10_imageButton);
-//
-        themeButton1.setOnClickListener(this);
-        themeButton2.setOnClickListener(this);
-//        themeButton3.setOnClickListener(this);
-//        themeButton4.setOnClickListener(this);
-//        themeButton5.setOnClickListener(this);
-//        themeButton6.setOnClickListener(this);
-//        themeButton7.setOnClickListener(this);
-//        themeButton8.setOnClickListener(this);
-//        themeButton9.setOnClickListener(this);
-//        themeButton10.setOnClickListener(this);
+        ImageButton largeSizeBtn = findViewById(R.id.large_size_imageButton);
+        ImageButton smallSizeBtn = findViewById(R.id.small_size_imageButton);
+        ImageButton mediumSizeBtn = findViewById(R.id.medium_size_imageButton);
+
+        largeSizeBtn.setOnClickListener(this);
+        smallSizeBtn.setOnClickListener(this);
+        mediumSizeBtn.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -66,11 +51,14 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
 //        editor.commit();
 
         switch (view.getId()) {
-            case R.id.theme1_imageButton:
-                editor.putInt(THEME_KEY, 1).apply();
+            case R.id.large_size_imageButton:
+                editor.putString(THEME_KEY, "LARGE_SIZE").apply();
                 break;
-            case R.id.theme2_imageButton:
-                editor.putInt(THEME_KEY, 2).apply();
+            case R.id.small_size_imageButton:
+                editor.putString(THEME_KEY, "SMALL_SIZE").apply();
+                break;
+            case R.id.medium_size_imageButton:
+                editor.putString(THEME_KEY, "MEDIUM_SIZE").apply();
                 break;
 //            case R.id.theme3_imageButton:
 //                editor.putInt(THEME_KEY, 2).apply();

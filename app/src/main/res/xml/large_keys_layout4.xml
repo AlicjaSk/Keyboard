@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyHeight="60dp"
+    android:keyWidth="33%p"
+    android:verticalGap="0px">
+    >
+    <Row>
+        <Key android:codes="112" android:keyLabel="p" android:keyEdgeFlags="left"/>
+        <Key android:codes="33" android:keyLabel="!"/>
+        <Key android:codes="63" android:keyLabel="\?" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="106" android:keyLabel="j" android:keyEdgeFlags="left"/>
+        <Key android:codes="107" android:keyLabel="k"/>
+        <Key android:popupKeyboard="@xml/l_popup" android:codes="108" android:keyLabel="l" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="-1" android:keyIcon="@drawable/uparrow" android:keyEdgeFlags="left"/>
+        <Key android:popupKeyboard="@xml/n_popup" android:codes="110" android:keyLabel="n"/>
+        <Key android:codes="109" android:keyLabel="m" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:keyWidth="13%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
+        <Key android:keyWidth="13%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:keyWidth="48%p" android:codes="32" android:keyLabel="SPACE" android:isRepeatable="true"/>
+        <Key android:keyWidth="13%p" android:codes="-5" android:keyIcon="@drawable/leftdelarrow" android:isRepeatable="true"/>
+        <Key android:keyWidth="13%p" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>
+    </Row>
+</Keyboard>
