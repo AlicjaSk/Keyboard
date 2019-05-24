@@ -59,8 +59,28 @@
                         android:padding="0dp"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/large_size" />
-
-
+                    <ImageButton
+                        android:id="@+id/dark_blue_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:padding="0dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/dark_blue_theme" />
+                    <ImageButton
+                        android:id="@+id/light_blue_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:padding="0dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/light_blue_theme" />
 
                 </LinearLayout>
 

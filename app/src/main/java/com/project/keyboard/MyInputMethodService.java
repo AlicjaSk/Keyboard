@@ -14,6 +14,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodSubtype;
 import static com.project.keyboard.ThemeActivity.THEME_KEY;
+import static com.project.keyboard.ThemeActivity.VIEW_KEY;
 
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
@@ -51,7 +52,18 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public View onCreateInputView() {
-        keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+
+        String nrOfTheme =  sharedPreferences.getString(VIEW_KEY, "DARK_BLUE");
+
+        switch(nrOfTheme){
+            case "DARK_BLUE":
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                break;
+            case "LIGHT_BLUE":
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view2, null);
+                break;
+        }
+
 
         String nrOfView =  sharedPreferences.getString(THEME_KEY, "MEDIUM_SIZE");
         switch(nrOfView) {

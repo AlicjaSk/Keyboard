@@ -14,7 +14,8 @@ import android.widget.Toast;
 public class ThemeActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String THEME_KEY = "theme_key";
-    public static final String AD_COUNT = "ad_count";
+    public static final String VIEW_KEY = "view_key";
+
 //    public InterstitialAd interstitialAd;
 //    public AdRequest adRequest;
 
@@ -31,9 +32,15 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
         ImageButton smallSizeBtn = findViewById(R.id.small_size_imageButton);
         ImageButton mediumSizeBtn = findViewById(R.id.medium_size_imageButton);
 
+        ImageButton darkBlueThemeBtn = findViewById(R.id.dark_blue_theme);
+        ImageButton lightBlueThemeBtn = findViewById(R.id.light_blue_theme);
+
         largeSizeBtn.setOnClickListener(this);
         smallSizeBtn.setOnClickListener(this);
         mediumSizeBtn.setOnClickListener(this);
+
+        darkBlueThemeBtn.setOnClickListener(this);
+        lightBlueThemeBtn.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -60,6 +67,13 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
             case R.id.medium_size_imageButton:
                 editor.putString(THEME_KEY, "MEDIUM_SIZE").apply();
                 break;
+            case R.id.dark_blue_theme:
+                editor.putString(VIEW_KEY, "DARK_BLUE").apply();
+                break;
+            case R.id.light_blue_theme:
+                editor.putString(VIEW_KEY, "LIGHT_BLUE").apply();
+                break;
+
 //            case R.id.theme3_imageButton:
 //                editor.putInt(THEME_KEY, 2).apply();
 //                break;
