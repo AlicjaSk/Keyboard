@@ -14,7 +14,8 @@
             android:keyLabel="w" />
         <Key
             android:codes="101"
-            android:keyLabel="e" />
+            android:keyLabel="e"
+            android:popupKeyboard="@xml/e_popup"/>
         <Key
             android:codes="114"
             android:keyLabel="r" />
@@ -32,7 +33,8 @@
             android:keyLabel="i" />
         <Key
             android:codes="111"
-            android:keyLabel="o" />
+            android:keyLabel="o"
+            android:popupKeyboard="@xml/o_popup"/>
         <Key
             android:codes="112"
             android:keyEdgeFlags="right"
@@ -44,10 +46,12 @@
             android:codes="97"
             android:horizontalGap="5%p"
             android:keyEdgeFlags="left"
-            android:keyLabel="a" />
+            android:keyLabel="a"
+            android:popupKeyboard="@xml/a_popup"/>
         <Key
             android:codes="115"
-            android:keyLabel="s" />
+            android:keyLabel="s"
+            android:popupKeyboard="@xml/s_popup"/>
         <Key
             android:codes="100"
             android:keyLabel="d" />
@@ -69,7 +73,8 @@
         <Key
             android:codes="108"
             android:keyEdgeFlags="right"
-            android:keyLabel="l" />
+            android:keyLabel="l"
+            android:popupKeyboard="@xml/l_popup"/>
     </Row>
 
     <Row>
@@ -82,13 +87,15 @@
             android:keyWidth="15%p" />
         <Key
             android:codes="122"
-            android:keyLabel="z" />
+            android:keyLabel="z"
+            android:popupKeyboard="@xml/z_popup"/>
         <Key
             android:codes="120"
             android:keyLabel="x" />
         <Key
             android:codes="99"
-            android:keyLabel="c" />
+            android:keyLabel="c"
+            android:popupKeyboard="@xml/c_popup"/>
         <Key
             android:codes="118"
             android:keyLabel="v" />
@@ -97,7 +104,8 @@
             android:keyLabel="b" />
         <Key
             android:codes="110"
-            android:keyLabel="n" />
+            android:keyLabel="n"
+            android:popupKeyboard="@xml/n_popup"/>
         <Key
             android:codes="109"
             android:keyLabel="m" />

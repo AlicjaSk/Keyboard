@@ -32,7 +32,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public void onInitializeInterface(){
-//        shouldOfferSwitchingToNextInputMethod();
         super.onInitializeInterface();
         appContext = getApplicationContext();
     }
@@ -45,8 +44,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onCreate() {
         super.onCreate();
-//        mInputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-//        mWordSeparators = getResources().getString(R.string.word_separators);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
@@ -79,10 +76,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         new CustomKeyboard(this, R.xml.small_keys_layout2),
                         new CustomKeyboard(this, R.xml.small_keys_layout3)
                 };
-                currentKeyboardIdx = 0;
-                currentKeyboard = keyboardsArray[0];
-                keyboardView.setKeyboard(currentKeyboard);
-                keyboardView.setOnKeyboardActionListener(this);
                 break;
             case "MEDIUM_SIZE":
                 keyboardsArray = new CustomKeyboard[]{
@@ -92,11 +85,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         new CustomKeyboard(this, R.xml.medium_keys_layout4),
                         new CustomKeyboard(this, R.xml.medium_keys_layout5)
                 };
-
-                currentKeyboardIdx = 0;
-                currentKeyboard = keyboardsArray[0];
-                keyboardView.setKeyboard(currentKeyboard);
-                keyboardView.setOnKeyboardActionListener(this);
                 break;
             case "LARGE_SIZE":
                 keyboardsArray = new CustomKeyboard[]{
@@ -110,12 +98,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         new CustomKeyboard(this, R.xml.large_keys_layout8),
                         new CustomKeyboard(this, R.xml.large_keys_layout9),
                 };
-                currentKeyboardIdx = 0;
-                currentKeyboard = keyboardsArray[0];
-                keyboardView.setKeyboard(currentKeyboard);
-                keyboardView.setOnKeyboardActionListener(this);
+
                 break;
         }
+        setNewKeyboard(keyboardsArray[0]);
+        currentKeyboardIdx = 0;
         return keyboardView;
     }
 
@@ -149,8 +136,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private void capsClicked(){
         caps = !caps;
         keyboardView.setShifted(caps || !keyboardView.isShifted());
-
-//        currentKeyboard.setShifted(caps);
         keyboardView.invalidateAllKeys();
     }
 
@@ -168,7 +153,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     }
                     break;
                 case Keyboard.KEYCODE_SHIFT:
-//                    switchToNextInputMethod(false);
                     if (isOnceShiftClicked) {
                         isTwiceShiftClicked = true;
                         isOnceShiftClicked = false;
@@ -229,8 +213,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting) {
         super.onStartInput(attribute, restarting);
-
-        // Restart the InputView to apply right theme selected.
         setInputView(onCreateInputView());
 
     }
@@ -267,15 +249,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public void onCurrentInputMethodSubtypeChanged(InputMethodSubtype subtype) {
-//        keyboardView.setSubtypeOnSpaceKey(subtype);
-//        switch(subtype.getLocale()) {
-//            case "fa_IR":
-////                setLatinKeyboard(mSymbolsKeyboard);
-//                break;
-//            case "en_US":
-////                setLatinKeyboard(mQwertyKeyboard);
-//                break;
-//        };
+
     }
 
 }

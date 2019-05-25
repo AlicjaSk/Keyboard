@@ -2,10 +2,12 @@
 <android.inputmethodservice.KeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/keyboard_view"
-    android:keyPreviewLayout="@layout/key_preview"
+    android:keyPreviewLayout="@layout/key_preview_green_pink"
     android:layout_alignParentBottom="true"
     android:keyBackground="@drawable/green_key"
     android:keyTextColor="#D700D7"
     android:background="#D700D7"
     >
 </android.inputmethodservice.KeyboardView>
+
+    <!--android:popupLayout="@layout/popup_layout"-->
