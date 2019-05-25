@@ -28,17 +28,19 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
         ImageButton smallSizeBtn = findViewById(R.id.small_size_imageButton);
         ImageButton mediumSizeBtn = findViewById(R.id.medium_size_imageButton);
 
-        ImageButton darkBlueThemeBtn = findViewById(R.id.dark_blue_theme);
-        ImageButton lightBlueThemeBtn = findViewById(R.id.light_blue_theme);
+        ImageButton darkBlueThemeBtn = findViewById(R.id.dark_theme);
+        ImageButton blueYellowThemeBtn = findViewById(R.id.blue_yellow_theme);
         ImageButton lightThemeBtn = findViewById(R.id.light_theme);
+        ImageButton greenPinkThemeBtn = findViewById(R.id.green_pink_theme);
 
         largeSizeBtn.setOnClickListener(this);
         smallSizeBtn.setOnClickListener(this);
         mediumSizeBtn.setOnClickListener(this);
 
         darkBlueThemeBtn.setOnClickListener(this);
-        lightBlueThemeBtn.setOnClickListener(this);
+        blueYellowThemeBtn.setOnClickListener(this);
         lightThemeBtn.setOnClickListener(this);
+        greenPinkThemeBtn.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -52,60 +54,44 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putInt(THEME_KEY, 3).apply();
-//        editor.commit();
-
+        String sizeSelected = "Rozmiar ustawiony";
+        String themeSelected = "Motyw ustawiony";
         switch (view.getId()) {
             case R.id.large_size_imageButton:
                 editor.putString(THEME_KEY, "LARGE_SIZE").apply();
+                Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.small_size_imageButton:
                 editor.putString(THEME_KEY, "SMALL_SIZE").apply();
+                Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.medium_size_imageButton:
                 editor.putString(THEME_KEY, "MEDIUM_SIZE").apply();
+                Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
+
                 break;
-            case R.id.dark_blue_theme:
-                editor.putString(VIEW_KEY, "DARK_BLUE").apply();
+            case R.id.dark_theme:
+                editor.putString(VIEW_KEY, "DARK").apply();
+                Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
+
                 break;
-            case R.id.light_blue_theme:
-                editor.putString(VIEW_KEY, "LIGHT_BLUE").apply();
+            case R.id.blue_yellow_theme:
+                editor.putString(VIEW_KEY, "BLUE_YELLOW").apply();
+                Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.light_theme:
                 editor.putString(VIEW_KEY, "LIGHT").apply();
+                Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
                 break;
-
-//            case R.id.theme3_imageButton:
-//                editor.putInt(THEME_KEY, 2).apply();
-//                break;
-//            case R.id.theme4_imageButton:
-//                editor.putInt(THEME_KEY, 3).apply();
-//                break;
-//            case R.id.theme5_imageButton:
-//                editor.putInt(THEME_KEY, 4).apply();
-//                break;
-//            case R.id.theme6_imageButton:
-//                editor.putInt(THEME_KEY, 5).apply();
-//                break;
-//            case R.id.theme7_imageButton:
-//                editor.putInt(THEME_KEY, 6).apply();
-//                break;
-//            case R.id.theme8_imageButton:
-//                editor.putInt(THEME_KEY, 7).apply();
-//                break;
-//            case R.id.theme9_imageButton:
-//                editor.putInt(THEME_KEY, 8).apply();
-//                break;
-//            case R.id.theme10_imageButton:
-//                editor.putInt(THEME_KEY, 9).apply();
-//                break;
+            case R.id.green_pink_theme:
+                editor.putString(VIEW_KEY, "GREEN_PINK").apply();
+                Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
+                break;
             default:
                 break;
         }
-//        editor.commit();
-
-
-        Toast.makeText(this, "Theme is selected.", Toast.LENGTH_SHORT).show();
     }
 
     @Override

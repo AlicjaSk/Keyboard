@@ -53,20 +53,22 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public View onCreateInputView() {
 
-        String nrOfTheme =  sharedPreferences.getString(VIEW_KEY, "DARK_BLUE");
+        String nrOfTheme =  sharedPreferences.getString(VIEW_KEY, "DARK");
 
         switch(nrOfTheme){
-            case "DARK_BLUE":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_yellow_dark_blue, null);
-                break;
-            case "LIGHT_BLUE":
+            case "DARK":
                 keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_dark, null);
+                break;
+            case "BLUE_YELLOW":
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_yellow_dark_blue, null);
                 break;
             case "LIGHT":
                 keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
                 break;
+            case "GREEN_PINK":
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_pink, null);
+                break;
         }
-
 
         String nrOfView =  sharedPreferences.getString(THEME_KEY, "MEDIUM_SIZE");
         switch(nrOfView) {

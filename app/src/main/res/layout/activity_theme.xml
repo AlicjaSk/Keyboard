@@ -12,8 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
 
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintHorizontal_bias="1.0"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toTopOf="parent">
 
 
             <LinearLayout
@@ -21,209 +34,132 @@
                 android:layout_height="0dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/simpleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ROZMIARY"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <ImageButton
                         android:id="@+id/small_size_imageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
+                        android:layout_width="300dp"
+                        android:layout_height="125dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginBottom="25dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:padding="0dp"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/small_size" />
+
                     <ImageButton
                         android:id="@+id/medium_size_imageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="300dp"
+                        android:layout_height="125dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="25dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:cropToPadding="true"
                         android:padding="0dp"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/medium_size" />
+
                     <ImageButton
                         android:id="@+id/large_size_imageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="300dp"
+                        android:layout_height="125dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginBottom="25dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:cropToPadding="true"
                         android:padding="0dp"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/large_size" />
-                    <ImageButton
-                        android:id="@+id/dark_blue_theme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:padding="0dp"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/dark_blue_theme" />
-                    <ImageButton
-                        android:id="@+id/light_blue_theme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:padding="0dp"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/light_blue_theme" />
-
-                    <ImageButton
-                        android:id="@+id/light_theme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:padding="0dp"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/light_theme" />
-
                 </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical">
 
 
-        </LinearLayout>
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_marginBottom="10dp"-->
-                    <!--android:orientation="horizontal">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+                </LinearLayout>
 
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme3_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginEnd="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_3" />-->
+                <TextView
+                    android:id="@+id/simpleTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MOTYWY"
+                    android:textAlignment="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+                <ImageButton
+                    android:id="@+id/blue_yellow_theme"
+                    android:layout_width="300dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:padding="0dp"
+                    android:scaleType="fitXY"
+                    ads:srcCompat="@drawable/dark_blue_yellow_theme" />
+                <ImageButton
+                    android:id="@+id/light_theme"
+                    android:layout_width="300dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:padding="0dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/light_theme" />
+                <ImageButton
+                    android:id="@+id/dark_theme"
+                    android:layout_width="300dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:padding="0dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/dark_theme" />
+                <ImageButton
+                    android:id="@+id/green_pink_theme"
+                    android:layout_width="300dp"
+                    android:layout_height="125dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:padding="0dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/green_pink_theme" />
 
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme4_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginStart="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_4" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_marginBottom="10dp"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme5_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginEnd="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_5" />-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme6_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginStart="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_6" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_marginBottom="10dp"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme7_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginEnd="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_7" />-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme8_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginStart="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_8" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme9_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginEnd="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_9" />-->
-
-                    <!--<ImageButton-->
-                        <!--android:id="@+id/theme10_imageButton"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginStart="10dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:adjustViewBounds="true"-->
-                        <!--android:cropToPadding="true"-->
-                        <!--android:padding="0dp"-->
-                        <!--android:scaleType="fitXY"-->
-                        <!--app:srcCompat="@drawable/kb_bg_10" />-->
-                <!--</LinearLayout>-->
             </LinearLayout>
+        </ScrollView>
+
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
