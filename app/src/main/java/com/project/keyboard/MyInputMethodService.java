@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodSubtype;
-import static com.project.keyboard.ThemeActivity.THEME_KEY;
-import static com.project.keyboard.ThemeActivity.VIEW_KEY;
+import static com.project.keyboard.SettingsActivity.SIZE_KEY;
+import static com.project.keyboard.SettingsActivity.THEME_KEY;
 
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
@@ -50,7 +50,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public View onCreateInputView() {
 
-        String nrOfTheme =  sharedPreferences.getString(VIEW_KEY, "DARK");
+        String nrOfTheme =  sharedPreferences.getString(THEME_KEY, "DARK");
 
         switch(nrOfTheme){
             case "DARK":
@@ -65,12 +65,14 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
             case "GREEN_PINK":
                 keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_pink, null);
                 break;
+            default:
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
+                break;
         }
 
-        String nrOfView =  sharedPreferences.getString(THEME_KEY, "MEDIUM_SIZE");
+        String nrOfView =  sharedPreferences.getString(SIZE_KEY, "MEDIUM_SIZE");
         switch(nrOfView) {
             case "SMALL_SIZE":
-
                 keyboardsArray = new CustomKeyboard[]{
                         new CustomKeyboard(this, R.xml.small_keys_layout1),
                         new CustomKeyboard(this, R.xml.small_keys_layout2),
@@ -99,6 +101,15 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                         new CustomKeyboard(this, R.xml.large_keys_layout9),
                 };
 
+                break;
+            default:
+                keyboardsArray = new CustomKeyboard[]{
+                        new CustomKeyboard(this, R.xml.medium_keys_layout1),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout2),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout3),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout4),
+                        new CustomKeyboard(this, R.xml.medium_keys_layout5)
+                };
                 break;
         }
         setNewKeyboard(keyboardsArray[0]);

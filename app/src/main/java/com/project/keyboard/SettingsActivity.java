@@ -2,7 +2,6 @@ package com.project.keyboard;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,13 +12,11 @@ import android.widget.Toast;
 
 
 
-public class ThemeActivity extends AppCompatActivity implements View.OnClickListener {
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String SIZE_KEY = "size_key";
     public static final String THEME_KEY = "theme_key";
-    public static final String VIEW_KEY = "view_key";
     private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private Integer counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,36 +71,36 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
 
         switch (view.getId()) {
             case R.id.large_size_imageButton:
-                editor.putString(THEME_KEY, "LARGE_SIZE").apply();
+                editor.putString(SIZE_KEY, "LARGE_SIZE").apply();
                 Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.small_size_imageButton:
-                editor.putString(THEME_KEY, "SMALL_SIZE").apply();
+                editor.putString(SIZE_KEY, "SMALL_SIZE").apply();
                 Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.medium_size_imageButton:
-                editor.putString(THEME_KEY, "MEDIUM_SIZE").apply();
+                editor.putString(SIZE_KEY, "MEDIUM_SIZE").apply();
                 Toast.makeText(this, sizeSelected, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.dark_theme:
-                editor.putString(VIEW_KEY, "DARK").apply();
+                editor.putString(THEME_KEY, "DARK").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.blue_yellow_theme:
-                editor.putString(VIEW_KEY, "BLUE_YELLOW").apply();
+                editor.putString(THEME_KEY, "BLUE_YELLOW").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
                 backgroundColorForPopup = R.color.blue;
                 break;
             case R.id.light_theme:
-                editor.putString(VIEW_KEY, "LIGHT").apply();
+                editor.putString(THEME_KEY, "LIGHT").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
                 backgroundColorForPopup = R.color.lightGrey;
                 break;
             case R.id.green_pink_theme:
-                editor.putString(VIEW_KEY, "GREEN_PINK").apply();
+                editor.putString(THEME_KEY, "GREEN_PINK").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
                 backgroundColorForPopup = R.color.green;
 
