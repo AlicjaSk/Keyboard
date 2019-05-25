@@ -57,10 +57,13 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
         switch(nrOfTheme){
             case "DARK_BLUE":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_yellow_dark_blue, null);
                 break;
             case "LIGHT_BLUE":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view2, null);
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_dark, null);
+                break;
+            case "LIGHT":
+                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
                 break;
         }
 

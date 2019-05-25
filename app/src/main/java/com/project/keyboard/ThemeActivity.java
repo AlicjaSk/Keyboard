@@ -15,10 +15,6 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
 
     public static final String THEME_KEY = "theme_key";
     public static final String VIEW_KEY = "view_key";
-
-//    public InterstitialAd interstitialAd;
-//    public AdRequest adRequest;
-
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private Integer counter;
@@ -34,6 +30,7 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
 
         ImageButton darkBlueThemeBtn = findViewById(R.id.dark_blue_theme);
         ImageButton lightBlueThemeBtn = findViewById(R.id.light_blue_theme);
+        ImageButton lightThemeBtn = findViewById(R.id.light_theme);
 
         largeSizeBtn.setOnClickListener(this);
         smallSizeBtn.setOnClickListener(this);
@@ -41,6 +38,7 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
 
         darkBlueThemeBtn.setOnClickListener(this);
         lightBlueThemeBtn.setOnClickListener(this);
+        lightThemeBtn.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -72,6 +70,9 @@ public class ThemeActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.light_blue_theme:
                 editor.putString(VIEW_KEY, "LIGHT_BLUE").apply();
+                break;
+            case R.id.light_theme:
+                editor.putString(VIEW_KEY, "LIGHT").apply();
                 break;
 
 //            case R.id.theme3_imageButton:

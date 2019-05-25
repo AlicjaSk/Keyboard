@@ -4,10 +4,7 @@
     android:id="@+id/keyboard_view"
     android:keyPreviewLayout="@layout/key_preview"
     android:layout_alignParentBottom="true"
-    android:keyBackground="@drawable/blue_key"
-    android:background="#687"
     >
-
 </android.inputmethodservice.KeyboardView>
 
     <!--android:keyTextColor="#9999"-->
