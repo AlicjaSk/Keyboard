@@ -107,7 +107,7 @@
             android:codes="-5"
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
-            android:keyIcon="@drawable/leftdelarrow"
+            android:keyLabel="DEL"
             android:keyWidth="15%p" />
     </Row>
 
