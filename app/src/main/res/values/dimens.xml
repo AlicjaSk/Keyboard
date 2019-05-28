@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="sizeOfGapInMediumAndLarge">5dp</dimen>
+    <dimen name="sizeOfTextInLargeView">40dp</dimen>
 
 </resources>

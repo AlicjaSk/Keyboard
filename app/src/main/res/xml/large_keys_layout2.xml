@@ -6,7 +6,7 @@
     android:verticalGap="@dimen/sizeOfGapInMediumAndLarge">
     >
     <Row>
-        <Key android:codes="114" android:keyLabel="r" android:keyEdgeFlags="left"/>
+        <Key android:keyTextSize="150px"  android:codes="114" android:keyLabel="r" android:keyEdgeFlags="left"/>
         <Key android:codes="116" android:keyLabel="t"/>
         <Key android:codes="121" android:keyLabel="y" android:keyEdgeFlags="right"/>
     </Row>

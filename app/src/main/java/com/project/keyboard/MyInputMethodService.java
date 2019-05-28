@@ -21,7 +21,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     private static Context appContext;
 
-    private KeyboardView keyboardView;
+    private MyCustomKeyboardView keyboardView;
     private CustomKeyboard[] keyboardsArray;
     private int currentKeyboardIdx;
     private CustomKeyboard currentKeyboard;
@@ -44,6 +44,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onCreate() {
         super.onCreate();
+//        getTheme().applyStyle();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
@@ -54,19 +55,19 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
         switch(nrOfTheme){
             case "DARK":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_dark, null);
+                keyboardView = (MyCustomKeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_dark, null);
                 break;
             case "BLUE_YELLOW":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_yellow_dark_blue, null);
+                keyboardView = (MyCustomKeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_yellow_dark_blue, null);
                 break;
             case "LIGHT":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
+                keyboardView = (MyCustomKeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
                 break;
             case "GREEN_PINK":
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_pink, null);
+                keyboardView = (MyCustomKeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_green_pink, null);
                 break;
             default:
-                keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
+                keyboardView = (MyCustomKeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view_light, null);
                 break;
         }
 
