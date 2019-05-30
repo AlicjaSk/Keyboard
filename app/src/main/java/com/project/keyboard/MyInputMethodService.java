@@ -35,22 +35,14 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         super.onInitializeInterface();
         appContext = getApplicationContext();
     }
-
-
-    public static Context getAppContext() {
-        return appContext;
-    }
-
+    
     @Override
     public void onCreate() {
         super.onCreate();
-//        getTheme().applyStyle();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-    @Override
-    public View onCreateInputView() {
-
+    void setupKeyboards() {
         String nrOfTheme =  sharedPreferences.getString(THEME_KEY, "DARK");
 
         switch(nrOfTheme){
@@ -74,6 +66,8 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         String nrOfView =  sharedPreferences.getString(SIZE_KEY, "MEDIUM_SIZE");
         switch(nrOfView) {
             case "SMALL_SIZE":
+                keyboardView.setKeyTextSize(70);
+                keyboardView.invalidateAllKeys();
                 keyboardsArray = new CustomKeyboard[]{
                         new CustomKeyboard(this, R.xml.small_keys_layout1),
                         new CustomKeyboard(this, R.xml.small_keys_layout2),
@@ -81,6 +75,8 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 };
                 break;
             case "MEDIUM_SIZE":
+                keyboardView.setKeyTextSize(90);
+                keyboardView.invalidateAllKeys();
                 keyboardsArray = new CustomKeyboard[]{
                         new CustomKeyboard(this, R.xml.medium_keys_layout1),
                         new CustomKeyboard(this, R.xml.medium_keys_layout2),
@@ -90,6 +86,8 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 };
                 break;
             case "LARGE_SIZE":
+                keyboardView.setKeyTextSize(120);
+                keyboardView.invalidateAllKeys();
                 keyboardsArray = new CustomKeyboard[]{
                         new CustomKeyboard(this, R.xml.large_keys_layout1),
                         new CustomKeyboard(this, R.xml.large_keys_layout2),
@@ -113,8 +111,12 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 };
                 break;
         }
-        setNewKeyboard(keyboardsArray[0]);
-        currentKeyboardIdx = 0;
+    }
+
+    @Override
+    public View onCreateInputView() {
+        setupKeyboards();
+        setNewKeyboard(0);
         return keyboardView;
     }
 
@@ -137,10 +139,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-    public void setNewKeyboard(CustomKeyboard keyboard){
-        keyboardView.setKeyboard(keyboard);
+    public void setNewKeyboard(int idx){
+        currentKeyboardIdx = idx;
+        currentKeyboard = keyboardsArray[currentKeyboardIdx];
+        keyboardView.setKeyboard(currentKeyboard);
         keyboardView.setOnKeyboardActionListener(this);
-        currentKeyboard = keyboard;
         currentKeyboard.setShifted(caps);
         keyboardView.invalidateAllKeys();
     }
@@ -185,15 +188,13 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     break;
                 case CustomKeyboard.NEXT:
                     int nextIndex = (currentKeyboardIdx + 1) % keyboardsArray.length;
-                    setNewKeyboard(keyboardsArray[nextIndex]);
-                    currentKeyboardIdx = nextIndex;
+                    setNewKeyboard(nextIndex);
                     break;
                 case CustomKeyboard.BACK:
                     int prevIndex = currentKeyboardIdx - 1;
                     if (currentKeyboardIdx == 0 )
                         prevIndex = keyboardsArray.length - 1;
-                    setNewKeyboard(keyboardsArray[prevIndex]);
-                    currentKeyboardIdx = prevIndex;
+                    setNewKeyboard(prevIndex);
                     break;
                 default :
                     char code = (char) primaryCode;
@@ -213,12 +214,11 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     @Override
     public void onStartInputView(EditorInfo attribute, boolean restarting) {
+        super.onStartInputView(attribute, restarting);
         currentKeyboard.setImeOptions(getResources(), attribute.imeOptions);
         for (CustomKeyboard ck : keyboardsArray) {
             ck.setImeOptions(getResources(), attribute.imeOptions);
         }
-        super.onStartInputView(attribute, restarting);
-
         makeCapitalLettersIfEmptyInput(attribute);
     }
 
@@ -226,7 +226,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     public void onStartInput(EditorInfo attribute, boolean restarting) {
         super.onStartInput(attribute, restarting);
         setInputView(onCreateInputView());
-
     }
 
 
