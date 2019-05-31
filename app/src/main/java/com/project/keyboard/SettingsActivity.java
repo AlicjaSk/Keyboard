@@ -57,18 +57,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         String sizeSelected = "Rozmiar ustawiony";
         String themeSelected = "Motyw ustawiony";
 
-        View oPopup = findViewById(R.id.o_popup);
-        View ePopup = findViewById(R.id.e_popup);
-        View sPopup = findViewById(R.id.s_popup);
-        View aPopup = findViewById(R.id.a_popup);
-        View lPopup = findViewById(R.id.l_popup);
-        View zPopup = findViewById(R.id.z_popup);
-        View cPopup = findViewById(R.id.c_popup);
-        View nPopup = findViewById(R.id.n_popup);
-
-        int backgroundColorForPopup = R.color.green;
-
-
         switch (view.getId()) {
             case R.id.large_size_imageButton:
                 editor.putString(SIZE_KEY, "LARGE_SIZE").apply();
@@ -92,32 +80,20 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.blue_yellow_theme:
                 editor.putString(THEME_KEY, "BLUE_YELLOW").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
-                backgroundColorForPopup = R.color.blue;
                 break;
             case R.id.light_theme:
                 editor.putString(THEME_KEY, "LIGHT").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
-                backgroundColorForPopup = R.color.lightGrey;
                 break;
             case R.id.green_pink_theme:
                 editor.putString(THEME_KEY, "GREEN_PINK").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
-                backgroundColorForPopup = R.color.green;
 
                 break;
             default:
                 break;
 
         }
-//        ePopup.set(R.drawable.);
-//        oPopup.setBackgroundColor(backgroundColorForPopup);
-//        aPopup.setBackgroundColor(backgroundColorForPopup);
-//        sPopup.setBackgroundColor(backgroundColorForPopup);
-//        lPopup.setBackgroundColor(backgroundColorForPopup);
-//        zPopup.setBackgroundColor(backgroundColorForPopup);
-//        cPopup.setBackgroundColor(backgroundColorForPopup);
-//        nPopup.setBackgroundColor(backgroundColorForPopup);
-
     }
 
     @Override

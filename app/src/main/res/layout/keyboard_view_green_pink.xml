@@ -5,8 +5,8 @@
     android:keyPreviewLayout="@layout/key_preview_green_pink"
     android:layout_alignParentBottom="true"
     android:keyBackground="@drawable/green_key"
-    android:keyTextColor="#D700D7"
-    android:background="#D700D7"
+    android:keyTextColor="@color/pink"
+    android:background="@color/pink"
     >
 </com.project.keyboard.MyCustomKeyboardView>
 

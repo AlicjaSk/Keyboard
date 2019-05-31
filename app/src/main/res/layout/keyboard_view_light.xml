@@ -2,11 +2,11 @@
 <com.project.keyboard.MyCustomKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/keyboard_view"
-    android:keyPreviewLayout="@layout/key_preview"
+    android:keyPreviewLayout="@layout/key_preview_light"
     android:layout_alignParentBottom="true"
     android:keyBackground="@drawable/grey_key"
-    android:background="#bcc8db"
-    android:keyTextColor="#000000"
+    android:background="@color/lightBlue"
+    android:keyTextColor="@color/colorPrimaryDark"
     >
 
 </com.project.keyboard.MyCustomKeyboardView>

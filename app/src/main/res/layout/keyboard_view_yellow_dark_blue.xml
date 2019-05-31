@@ -2,15 +2,12 @@
 <com.project.keyboard.MyCustomKeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/keyboard_view"
-    android:keyPreviewLayout="@layout/key_preview"
+    android:keyPreviewLayout="@layout/key_preview_yellow_dark_blue"
     android:layout_alignParentBottom="true"
     android:keyBackground="@drawable/blue_key"
-    android:background="#F1D700"
-    android:keyTextColor="#F1D700"
+    android:background="@color/yellow"
+    android:keyTextColor="@color/yellow"
 
     >
 
 </com.project.keyboard.MyCustomKeyboardView>
-
-    <!--android:keyTextColor="#9999"-->
-    <!--android:keyBackground="@drawable/blue_key"-->

@@ -47,5 +47,7 @@
     <string-array name="multi_select_list_preference_default_value" />
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
+    <string name="sizes">ROZMIARY</string>
+    <string name="themes">MOTYWY</string>
 
 </resources>
