@@ -1,8 +1,8 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="3px"
+    android:horizontalGap="@dimen/sizeOfGapInSmall"
     android:keyHeight="50dip"
-    android:keyWidth="10%p"
-    android:verticalGap="3px">
+    android:keyWidth="@dimen/sizeOfKeyInLSmallView"
+    android:verticalGap="@dimen/sizeOfGapInSmall">
 
     <Row>
         <Key
@@ -81,7 +81,7 @@
             android:isSticky="true"
             android:keyEdgeFlags="left"
             android:keyIcon="@drawable/uparrow"
-            android:keyWidth="15%p" />
+            android:keyWidth="14%p" />
         <Key
             android:codes="33"
             android:keyLabel="!" />
@@ -108,36 +108,31 @@
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
             android:keyLabel="DEL"
-            android:keyWidth="15%p" />
+            android:keyWidth="14%p" />
     </Row>
 
     <Row android:rowEdgeFlags="bottom">
-        <!--<Key
-            android:codes="-3"
-            android:keyEdgeFlags="left"
-            android:keyIcon="@drawable/sym_keyboard_done"
-            android:keyWidth="15%p" />-->
-        <Key android:keyWidth="13%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
-        <Key android:keyWidth="13%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
+        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
         <Key
+            android:horizontalGap="1px"
             android:codes="44"
             android:keyLabel=","
-            android:keyWidth="13%p" />
-        <!--
-            android:codes: -101 is not a framework-defined key code but a key code that is
-            privately defined in com.example.android.softkeyboard.LatinKeyboardView.
-        -->
+            android:keyWidth="12%p" />
 
         <Key
+            android:horizontalGap="1px"
             android:codes="32"
             android:isRepeatable="true"
             android:keyLabel="SPACE"
-            android:keyWidth="35%p" />
+            android:keyWidth="34%p" />
         <Key
+            android:horizontalGap="1px"
             android:codes="46"
             android:keyLabel="."
-            android:keyWidth="13%p" />
+            android:keyWidth="12%p" />
         <Key
+            android:horizontalGap="1px"
             android:codes="10"
             android:keyEdgeFlags="right"
             android:keyIcon="@drawable/enter"
