@@ -28,7 +28,5 @@ public class MyCustomKeyboardView extends KeyboardView {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        setKeyTextSize(100);
-        this.invalidateAllKeys();
     }
 }

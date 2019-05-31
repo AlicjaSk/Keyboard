@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="5px"
+    android:horizontalGap="@dimen/sizeOfGapInMedium"
     android:keyHeight="60dp"
-    android:keyWidth="20%p"
-    android:verticalGap="5px">
+    android:keyWidth="@dimen/sizeOfKeyInMediumView"
+    android:verticalGap="@dimen/sizeOfGapInMedium">
     >
     <Row>
         <Key android:codes="49" android:keyLabel="1" android:keyEdgeFlags="left"/>
@@ -27,10 +27,10 @@
         <Key android:codes="64" android:keyLabel="\@" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:keyWidth="13%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
-        <Key android:keyWidth="13%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
-        <Key android:keyWidth="48%p" android:codes="32" android:keyLabel="SPACE" android:isRepeatable="true"/>
-        <Key android:keyWidth="13%p" android:codes="-5" android:keyLabel="DEL" android:isRepeatable="true"/>
-        <Key android:keyWidth="13%p" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowMediumView" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyRightArrowMediumView" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:keyWidth="@dimen/sizeOfSpaceMediumView" android:codes="32" android:keyLabel="" android:isRepeatable="true"/>
+        <Key android:keyWidth="@dimen/sizeOfDelMediumView" android:codes="-5" android:keyLabel="DEL" android:isRepeatable="true"/>
+        <Key android:keyWidth="@dimen/sizeOfEnterMediumView" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>

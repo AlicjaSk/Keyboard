@@ -35,7 +35,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         super.onInitializeInterface();
         appContext = getApplicationContext();
     }
-    
+
     @Override
     public void onCreate() {
         super.onCreate();

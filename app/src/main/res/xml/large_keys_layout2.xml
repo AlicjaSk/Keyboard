@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="@dimen/sizeOfGapInMediumAndLarge"
+    android:horizontalGap="@dimen/sizeOfGapInLarge"
     android:keyHeight="60dp"
     android:keyWidth="@dimen/sizeOfKeyInLargeView"
-    android:verticalGap="@dimen/sizeOfGapInMediumAndLarge">
+    android:verticalGap="@dimen/sizeOfGapInLarge">
     <Row>
         <Key android:codes="114" android:keyLabel="r" android:keyEdgeFlags="left"/>
         <Key android:codes="116" android:keyLabel="t"/>
@@ -22,7 +22,7 @@
     <Row>
         <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowLargeView" android:codes="-11" android:keyIcon="@drawable/leftarrow"/>
         <Key android:keyWidth="@dimen/sizeOfKeyRightArrowLargeView"  android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
-        <Key android:keyWidth="@dimen/sizeOfSpaceLargeView"  android:codes="32" android:keyLabel="SPACE" android:isRepeatable="true"/>
+        <Key android:keyWidth="@dimen/sizeOfSpaceLargeView"  android:codes="32" android:keyLabel="" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfDelLargeView" android:codes="-5" android:keyLabel="DEL" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfEnterLargeView"  android:codes="10" android:keyIcon="@drawable/enter"/>
     </Row>
