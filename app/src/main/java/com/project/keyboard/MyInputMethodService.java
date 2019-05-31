@@ -86,7 +86,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                 };
                 break;
             case "LARGE_SIZE":
-                keyboardView.setKeyTextSize(120);
+                keyboardView.setKeyTextSize(90);
                 keyboardView.invalidateAllKeys();
                 keyboardsArray = new CustomKeyboard[]{
                         new CustomKeyboard(this, R.xml.large_keys_layout1),

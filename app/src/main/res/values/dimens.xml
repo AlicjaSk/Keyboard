@@ -17,7 +17,7 @@
     <dimen name="sizeOfEnterLargeView">15%p</dimen>
 
 
-    <dimen name="sizeOfGapInMedium">1%p</dimen>
+    <dimen name="sizeOfGapInMedium">1.1%p</dimen>
     <dimen name="sizeOfKeyInMediumView">18.8%p</dimen>
     <dimen name="sizeOfKeyLeftArrowMediumView">17%p</dimen>
     <dimen name="sizeOfKeyRightArrowMediumView">17%p</dimen>
