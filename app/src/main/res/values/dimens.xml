@@ -8,11 +8,11 @@
     <!--<dimen name="sizeOfDelLargeView">16%p</dimen>-->
     <!--<dimen name="sizeOfEnterLargeView">13.5%p</dimen>-->
 
-    <dimen name="sizeOfGapInLarge">1%p</dimen>
-    <dimen name="sizeOfKeyInLargeView">32.1%p</dimen>
+    <dimen name="sizeOfGapInLarge">1.12%p</dimen>
+    <dimen name="sizeOfKeyInLargeView">32.07%p</dimen>
     <dimen name="sizeOfKeyLeftArrowLargeView">17%p</dimen>
     <dimen name="sizeOfKeyRightArrowLargeView">17%p</dimen>
-    <dimen name="sizeOfSpaceLargeView">28.5%p</dimen>
+    <dimen name="sizeOfSpaceLargeView">27.9%p</dimen>
     <dimen name="sizeOfDelLargeView">17%p</dimen>
     <dimen name="sizeOfEnterLargeView">15%p</dimen>
 
