@@ -4,11 +4,4 @@
     android:settingsActivity="com.project.keyboard.SettingsActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <subtype android:imeSubtypeMode="keyboard" />
-    <subtype android:name="new"
-        android:label="%s"
-        android:imeSubtypeMode="keyboard"
-        android:imeSubtypeExtraValue="foobar=30,someInternalOption=false" />
-
-
 </input-method>

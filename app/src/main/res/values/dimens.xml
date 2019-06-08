@@ -31,8 +31,4 @@
     <dimen name="sizeOfKeyInLSmallView">8.9%p</dimen>
     <dimen name="sizeOfGapInBottomRowInLSmallView">0.14%p</dimen>
 
-
-
-    <dimen name="sizeOfTextInLargeView">40dp</dimen>
-
 </resources>

@@ -27,8 +27,8 @@
         <Key android:codes="64" android:keyLabel="\@" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowMediumView" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
-        <Key android:keyWidth="@dimen/sizeOfKeyRightArrowMediumView" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowMediumView" android:codes="-11" android:keyIcon="@drawable/left_arrow" android:keyEdgeFlags="left"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyRightArrowMediumView" android:codes="-10" android:keyIcon="@drawable/right_arrow"/>
         <Key android:keyWidth="@dimen/sizeOfSpaceMediumView" android:codes="32" android:keyLabel="" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfDelMediumView" android:codes="-5" android:keyLabel="DEL" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfEnterMediumView" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>

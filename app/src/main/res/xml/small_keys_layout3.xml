@@ -80,7 +80,7 @@
             android:isModifier="true"
             android:isSticky="true"
             android:keyEdgeFlags="left"
-            android:keyIcon="@drawable/uparrow"
+            android:keyIcon="@drawable/up_arrow"
             android:keyWidth="14%p" />
         <Key
             android:codes="161"
@@ -112,8 +112,8 @@
     </Row>
 
     <Row android:rowEdgeFlags="bottom">
-        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
-        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-11" android:keyIcon="@drawable/left_arrow" android:keyEdgeFlags="left"/>
+        <Key android:horizontalGap="@dimen/sizeOfGapInBottomRowInLSmallView" android:keyWidth="12%p" android:codes="-10" android:keyIcon="@drawable/right_arrow"/>
         <Key
             android:horizontalGap="1px"
             android:codes="44"

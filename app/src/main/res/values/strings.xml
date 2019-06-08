@@ -1,53 +1,13 @@
 <resources>
     <string name="app_name">Keyboard</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Appearance</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
     <string name="sizes">ROZMIARY</string>
     <string name="themes">MOTYWY</string>
+    <string name="small_size_content_description">Small size</string>
+    <string name="medium_size_content_description">Medium size</string>
+    <string name="large_size_content_description">Large size</string>
+    <string name="blue_yellow_theme_content_description">Blue yellow theme</string>
+    <string name="light_theme_content_description">Light theme</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="green_pink_theme_content_description">Green pink theme</string>
 
 </resources>

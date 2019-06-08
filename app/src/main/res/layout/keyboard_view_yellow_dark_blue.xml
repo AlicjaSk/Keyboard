@@ -7,7 +7,5 @@
     android:keyBackground="@drawable/blue_key"
     android:background="@color/yellow"
     android:keyTextColor="@color/yellow"
-
     >
-
 </com.project.keyboard.MyCustomKeyboardView>

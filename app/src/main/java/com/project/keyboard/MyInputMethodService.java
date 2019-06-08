@@ -1,6 +1,6 @@
 package com.project.keyboard;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
@@ -19,8 +19,6 @@ import static com.project.keyboard.SettingsActivity.THEME_KEY;
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
-    private static Context appContext;
-
     private MyCustomKeyboardView keyboardView;
     private CustomKeyboard[] keyboardsArray;
     private int currentKeyboardIdx;
@@ -28,21 +26,16 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private boolean isOnceShiftClicked = false;
     private boolean isTwiceShiftClicked = false;
     private boolean caps;
-    SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
 
-    @Override
-    public void onInitializeInterface(){
-        super.onInitializeInterface();
-        appContext = getApplicationContext();
-    }
-
-    @Override
+       @Override
     public void onCreate() {
         super.onCreate();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-    void setupKeyboards() {
+    @SuppressLint("InflateParams")
+    private void setupKeyboards() {
         String nrOfTheme =  sharedPreferences.getString(THEME_KEY, "DARK");
 
         switch(nrOfTheme){
@@ -139,7 +132,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-    public void setNewKeyboard(int idx){
+    private void setNewKeyboard(int idx){
         currentKeyboardIdx = idx;
         currentKeyboard = keyboardsArray[currentKeyboardIdx];
         keyboardView.setKeyboard(currentKeyboard);
@@ -253,10 +246,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-    @Override
-    public void onFinishInputView(boolean finishingInput) {
-        super.onFinishInputView(finishingInput);
-    }
 
     @Override
     public void onCurrentInputMethodSubtypeChanged(InputMethodSubtype subtype) {

@@ -20,15 +20,15 @@
         <Key android:codes="103" android:keyLabel="g" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="-1" android:keyIcon="@drawable/uparrow" android:keyEdgeFlags="left"/>
+        <Key android:codes="-1" android:keyIcon="@drawable/up_arrow" android:keyEdgeFlags="left"/>
         <Key android:codes="46" android:keyLabel="."/>
         <Key android:popupKeyboard="@xml/z_popup" android:codes="122" android:keyLabel="z"/>
         <Key android:codes="120" android:keyLabel="x"/>
         <Key android:popupKeyboard="@xml/c_popup" android:codes="99" android:keyLabel="c" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowMediumView" android:codes="-11" android:keyIcon="@drawable/leftarrow" android:keyEdgeFlags="left"/>
-        <Key android:keyWidth="@dimen/sizeOfKeyRightArrowMediumView" android:codes="-10" android:keyIcon="@drawable/rightarrow"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyLeftArrowMediumView" android:codes="-11" android:keyIcon="@drawable/left_arrow" android:keyEdgeFlags="left"/>
+        <Key android:keyWidth="@dimen/sizeOfKeyRightArrowMediumView" android:codes="-10" android:keyIcon="@drawable/right_arrow"/>
         <Key android:keyWidth="@dimen/sizeOfSpaceMediumView" android:codes="32" android:keyLabel="" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfDelMediumView" android:codes="-5" android:keyLabel="DEL" android:isRepeatable="true"/>
         <Key android:keyWidth="@dimen/sizeOfEnterMediumView" android:codes="10" android:keyIcon="@drawable/enter" android:keyEdgeFlags="right"/>

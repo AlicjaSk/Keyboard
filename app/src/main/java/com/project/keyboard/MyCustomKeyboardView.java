@@ -1,7 +1,6 @@
 package com.project.keyboard;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
 
@@ -23,10 +22,5 @@ public class MyCustomKeyboardView extends KeyboardView {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
     }
 }

@@ -54,7 +54,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        String sizeSelected = "Rozmiar ustawiony";
+        //noinspection SpellCheckingInspection,SpellCheckingInspection
+        @SuppressWarnings("SpellCheckingInspection") String sizeSelected = "Rozmiar ustawiony";
+        //noinspection SpellCheckingInspection,SpellCheckingInspection
         String themeSelected = "Motyw ustawiony";
 
         switch (view.getId()) {
@@ -104,10 +106,5 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }
