@@ -5,7 +5,6 @@
     android:keyHeight="60dp"
     android:keyWidth="20%p"
     android:verticalGap="0px">
-    >
     <Row>
         <Key android:codes="101" android:keyLabel="e" android:keyEdgeFlags="left"/>
         <Key android:codes="281" android:keyLabel="ę" android:keyEdgeFlags="right"/>

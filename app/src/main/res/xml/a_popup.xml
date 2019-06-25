@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/a_popup"
-
     android:horizontalGap="0px"
     android:keyHeight="60dp"
     android:keyWidth="20%p"
-
     android:verticalGap="0px">
-    >
     <Row>
         <Key android:codes="97" android:keyLabel="a" android:keyEdgeFlags="left"/>
         <Key  android:codes="261" android:keyLabel="ą" android:keyEdgeFlags="right"/>

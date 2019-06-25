@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 
-
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String SIZE_KEY = "size_key";
@@ -46,8 +45,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         if(getActionBar() != null){
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-
     }
 
     @SuppressLint("ResourceAsColor")
@@ -90,11 +87,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.green_pink_theme:
                 editor.putString(THEME_KEY, "GREEN_PINK").apply();
                 Toast.makeText(this, themeSelected, Toast.LENGTH_SHORT).show();
-
                 break;
             default:
                 break;
-
         }
     }
 

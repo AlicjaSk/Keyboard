@@ -6,6 +6,7 @@ import android.content.res.XmlResourceParser;
 import android.inputmethodservice.Keyboard;
 import android.view.inputmethod.EditorInfo;
 
+
 class CustomKeyboard extends Keyboard {
 
     public static final int NEXT = -10;
@@ -38,15 +39,13 @@ class CustomKeyboard extends Keyboard {
                 mEnterKey.icon = res.getDrawable(R.drawable.enter);
                 mEnterKey.label = null;
                 break;
-
         }
-
     }
+
     @Override
     protected Key createKeyFromXml(Resources res, Row parent, int x, int y, XmlResourceParser parser) {
         Key key = new Key(res, parent, x, y, parser);
         mEnterKey = key;
         return key;
     }
-
 }

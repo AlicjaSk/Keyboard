@@ -222,7 +222,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     }
 
 
-        @Override
+    @Override
     public void onText(CharSequence charSequence) {
 
     }
@@ -246,10 +246,8 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
     }
 
-
     @Override
     public void onCurrentInputMethodSubtypeChanged(InputMethodSubtype subtype) {
 
     }
-
 }
